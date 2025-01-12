@@ -8,15 +8,14 @@ exports.getAllTodos = () => Todo.find();
 
 exports.updateTodo = async (id, updatedTodo) => {
   const todo = await Todo.findById(id);
- 
+
   if (!todo) {
     throw new Error(errorMsg.ENTITY_NOT_FOUND);
   }
 
-  const key = Object.keys(updatedTodo)[0];
-  const value = Object.values(updatedTodo)[0];
-
-  todo[key] = value;
+  for (const key of Object.keys(updatedTodo)) {
+    todo[key] = updatedTodo[key];
+  }
 
   return todo.save();
 };
@@ -36,5 +35,3 @@ exports.deleteTodo = async (id) => {
 
   await Todo.deleteOne(todo);
 };
-
-

@@ -4,7 +4,7 @@ const errorMsg = require('../constants/errorMsg');
 
 exports.createTodo = (data) => Todo.create(data);
 
-exports.getAllTodos = () => Todo.find();
+exports.getAllTodos = () => Todo.find().sort({ createdAt: -1 });
 
 exports.updateTodo = async (id, updatedTodo) => {
   const todo = await Todo.findById(id);

@@ -7,9 +7,9 @@ const {
 } = require('../controllers/todo.controller');
 const { validateTodoData } = require('../middlewares/todo.middleware');
 
-router.post('/', validateTodoData, createTodo);
-router.get('/', getTodos);
-router.patch('/:id', updateTodo);
-router.delete('/:id', deleteTodo);
+router.post('/tasks', validateTodoData, createTodo);
+router.get('/tasks', getTodos);
+router.patch('/tasks/:id', updateTodo);
+router.delete('/tasks/:id', deleteTodo);
 
 module.exports = router;

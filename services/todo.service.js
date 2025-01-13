@@ -1,5 +1,5 @@
 const { Types } = require('mongoose');
-const Todo = require('../models/Todo.model');
+const Todo = require('../models/todo.model');
 const errorMsg = require('../constants/errorMsg');
 
 exports.createTodo = (data) => Todo.create(data);

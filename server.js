@@ -9,7 +9,7 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-app.use('/', router);
+app.use('/tasks', router);
 
 let { PORT, MONGODB_URL } = process.env;
 
